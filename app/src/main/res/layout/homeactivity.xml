@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="0dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:background="@drawable/homebg">
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/love"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginLeft="35dp"
+        android:src="@drawable/love" />
+
+
+    <TextView
+        android:id="@+id/choose"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/whitebtnbg"
+        android:gravity="center"
+        android:text="CHOOSE YOUR REQUIRED ACTION"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="21dp"
+        android:textStyle="bold" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+   
+   
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="300dp"
+       android:orientation="vertical"
+       android:layout_gravity="center"
+       android:gravity="center"
+       >
+      
+      <Space
+          android:layout_width="match_parent"
+          android:layout_height="10dp" />
+
+       <Button
+           android:id="@+id/calculatorBtn"
+           android:layout_width="350dp"
+           android:layout_height="70dp"
+           android:layout_gravity="center"
+           android:background="@drawable/rectanglebtn2"
+           android:drawableLeft="@drawable/ic_calculator"
+           android:drawablePadding="5dp"
+           android:text="Calculation"
+           android:textColor="#ffff"
+           android:textSize="35dp"
+           android:textStyle="bold" />
+
+      <Space
+          android:layout_width="wrap_content"
+          android:layout_height="10dp" />
+
+       <Button
+           android:id="@+id/DirectionBtn"
+           android:layout_width="350dp"
+           android:layout_height="70dp"
+           android:layout_gravity="center"
+           android:background="@drawable/rectanglebtn2"
+           android:drawableLeft="@drawable/ic_direction"
+           android:drawablePadding="16dp"
+           android:text="Direction"
+           android:textColor="#ffff"
+           android:textSize="35dp"
+           android:textStyle="bold" />
+
+      <Space
+          android:layout_width="wrap_content"
+          android:layout_height="10dp" />
+
+       <Button
+           android:id="@+id/countBtn"
+           android:layout_width="350dp"
+           android:layout_height="70dp"
+           android:layout_gravity="center"
+           android:background="@drawable/rectanglebtn2"
+           android:drawableLeft="@drawable/ic_iconfinder_board_math_class_school_2824448"
+           android:drawablePadding="16dp"
+           android:fontFamily="sans-serif-medium"
+           android:text="Count"
+           android:textColor="#ffff"
+           android:textSize="35dp"
+           android:textStyle="bold" />
+      
+   </LinearLayout>
+
+
+
+</LinearLayout>

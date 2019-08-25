@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/homebg"
+
+    android:paddingTop="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/whitebtnbg"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="PRESS BUTTONS TO ADD IN LIST"
+        android:textColor="#ffff"
+        android:textSize="21dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/leftbtn"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rectanglebtn2"
+            android:text="TURN LEFT"
+            android:textColor="#ffff"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            />
+
+        <ImageButton
+            android:id="@+id/speackerLeftBtn"
+            android:layout_marginTop="9dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circlebtn"
+            android:src="@drawable/ic_baseline_volume_up_24px"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/rightbtn"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/rectanglebtn2"
+            android:text="TURN RIGHT"
+            android:textColor="#ffff"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            />
+
+
+
+        <ImageButton
+            android:id="@+id/speackerRightBtn"
+            android:layout_marginTop="4dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circlebtn"
+            android:src="@drawable/ic_baseline_volume_up_24px"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/uturnbtn"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectanglebtn2"
+            android:text="Take U TURN"
+            android:textColor="#ffff"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            />
+
+
+
+        <ImageButton
+            android:id="@+id/speackerUturnBtn"
+            android:layout_marginTop="4dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circlebtn"
+            android:src="@drawable/ic_baseline_volume_up_24px"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+
+        <Button
+            android:id="@+id/straightbtn"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectanglebtn2"
+            android:text="GO STRAIGHT"
+            android:textColor="#ffff"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            />
+
+
+
+        <ImageButton
+            android:id="@+id/speackerStrainghtBtn"
+            android:layout_marginTop="4.5dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circlebtn"
+            android:src="@drawable/ic_baseline_volume_up_24px"
+            />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/whitebtnbg"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="ADDED LIST"
+        android:textColor="#ffff"
+        android:textSize="21dp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/homebtn"
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/homebg"
+            android:src="@drawable/ic_sharp_home_24px"/>
+
+        <ImageButton
+            android:id="@+id/infobtn"
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/homebg"
+            android:src="@drawable/ic_baseline_info_24px"/>
+
+        <ImageButton
+            android:id="@+id/cancelbtn"
+            android:layout_width="136dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/homebg"
+            android:src="@drawable/ic_baseline_highlight_off_24px"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
