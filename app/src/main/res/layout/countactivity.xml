@@ -3,23 +3,58 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     android:background="@drawable/homebg">
 
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/startImage2"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginLeft="33dp"
-        android:src="@drawable/dance"
-        />
+
+
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="60dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+android:orientation="horizontal">
+
+<ImageButton
+    android:id="@+id/homebtn2"
+    android:layout_width="100dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/circlebtn"
+    android:src="@drawable/ic_sharp_home_24px"/>
+
+    <Space
+        android:layout_width="5dp"
+        android:layout_height="match_parent" />
+
+<ImageButton
+    android:id="@+id/infobtn2"
+    android:layout_width="100dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/circlebtn"
+    android:src="@drawable/ic_baseline_info_24px"/>
+
+    <Space
+        android:layout_width="5dp"
+        android:layout_height="match_parent" />
+
+<ImageButton
+    android:id="@+id/cancelbtn2"
+    android:layout_width="100dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/circlebtn"
+    android:src="@drawable/ic_baseline_highlight_off_24px"/>
+
+
+</LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         >
 
@@ -36,7 +71,7 @@
             android:gravity="center"
             android:text="TYPE SOMETHING"
             android:textAlignment="center"
-            android:textColor="#ffff"
+            android:textColor="@color/colorPrimary"
             android:textSize="21dp"
             android:textStyle="bold" />
 
@@ -44,17 +79,51 @@
          <EditText
              android:id="@+id/edcount"
              android:layout_width="match_parent"
-             android:layout_height="45dp"
-             android:layout_marginTop="10dp"
+             android:layout_height="150dp"
+             android:layout_marginTop="20dp"
              android:layout_marginLeft="10dp"
              android:layout_marginRight="10dp"
-             android:background="@drawable/textfield2"
+             android:background="@color/colorWhite"
              android:inputType="text"
              android:hint="Type Here"
              android:layout_gravity="center"
              android:gravity="center"
-             android:textColor="#ffff"
+             android:textColor="#000"
+             android:scrollbars="vertical"
              />
+
+
+
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:text="RESULT"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="21dp"
+            android:background="@drawable/whitebtnbg"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/resultTxt2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/textfield2"
+            android:gravity="center"
+            android:textColor="#ffff"
+            android:textSize="21dp"
+
+            />
+
 
 
         <ImageButton
@@ -69,60 +138,8 @@
             />
 
 
-        <TextView
-            android:id="@+id/txt2"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
-            android:layout_gravity="left"
-            android:gravity="center"
-            android:text="RESULT"
-            android:textColor="#ffff"
-            android:textSize="21dp"
-
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/resultTxt2"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/textfield2"
-            android:gravity="center"
-            android:textColor="#ffff"
-            android:textSize="21dp"
-
-            />
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/homebtn2"
-            android:layout_width="136dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/homebg"
-            android:src="@drawable/ic_sharp_home_24px"/>
-
-        <ImageButton
-            android:id="@+id/infobtn2"
-            android:layout_width="136dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/homebg"
-            android:src="@drawable/ic_baseline_info_24px"/>
-
-        <ImageButton
-            android:id="@+id/cancelbtn2"
-            android:layout_width="136dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/homebg"
-            android:src="@drawable/ic_baseline_highlight_off_24px"/>
-
-
-    </LinearLayout>
+</LinearLayout>
 
 </LinearLayout>

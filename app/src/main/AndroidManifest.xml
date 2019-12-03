@@ -3,6 +3,8 @@
     package="com.example.dyscalculia">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".transpose" />
+        <activity android:name=".eventmana" />
+        <activity android:name=".totalmoney" />
+        <activity android:name=".rrmoney" />
+        <activity android:name=".returnmoney" />
+        <activity android:name=".Mainmoney" />
+        <activity android:name=".givenmoney" />
         <activity android:name=".straight" />
         <activity android:name=".uturn" />
         <activity android:name=".right" />
@@ -27,6 +36,13 @@
         <activity android:name=".calculationactivity" />
         <activity android:name=".countactivity" />
         <activity android:name=".directionActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

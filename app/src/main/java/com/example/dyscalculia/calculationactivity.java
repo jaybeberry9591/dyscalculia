@@ -5,8 +5,10 @@ import android.content.pm.ActivityInfo;
 import android.media.Image;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -15,15 +17,18 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class calculationactivity extends AppCompatActivity {
 
-    ImageButton home, info, cancel;
+    TextToSpeech mTTS;
+    ImageButton home, info, cancel,speakerbtn;
     ImageView mic;
     TextView resulttxt,inputtxt;
+    int num,num1,num2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +40,7 @@ public class calculationactivity extends AppCompatActivity {
         mic=(ImageView) findViewById(R.id.microphone);
         inputtxt=(TextView) findViewById(R.id.inpuyTxt);
         resulttxt=(TextView) findViewById(R.id.resultTxt);
+        speakerbtn=(ImageButton) findViewById(R.id.speackerBtn);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +70,54 @@ public class calculationactivity extends AppCompatActivity {
             }
         });
 
+
+        mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status == TextToSpeech.SUCCESS) {
+                    int result = mTTS.setLanguage(Locale.ENGLISH);
+
+                    if (result == TextToSpeech.LANG_MISSING_DATA
+                            || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.e("TTS", "Language not supported");
+                    } else {
+                        speakerbtn.setEnabled(true);
+                    }
+                } else {
+                    Log.e("TTS", "Initialization failed");
+                }
+            }
+        });
+
+
+        speakerbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speak();
+            }
+        });
+
     }
+
+
+    private void speak() {
+
+
+        String text = resulttxt.getText().toString().trim();
+        mTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mTTS != null) {
+            mTTS.stop();
+            mTTS.shutdown();
+        }
+
+        super.onDestroy();
+    }
+
+
 
     void gohomeActivity(){
 
@@ -113,22 +166,18 @@ public class calculationactivity extends AppCompatActivity {
                 break;
         }
 
-        String n= null;
-        //String substring=null;
-        int num= 0;
         String s = inputtxt.getText().toString().trim();
-        Pattern p = Pattern.compile("\\d+");
+        Pattern p = Pattern.compile("-?\\d+(,\\d+)*?\\.?\\d+?");
+        List<String> numbers = new ArrayList<String>();
         Matcher m = p.matcher(s);
+        while (m.find()) {
+            numbers.add(m.group());
+        }
 
-        //substring=s.substring(0,3);
-        //Toast.makeText(getApplicationContext(),substring,Toast.LENGTH_LONG).show();
+
         if(s.contains("cos")){
-            while (m.find()){
-                n=m.group();
 
-            }
-
-            String con=n.toString();
+            String con=numbers.get(0);
             num=Integer.parseInt(con);
             Double i= new Double(num);
             i=Math.toRadians(i);
@@ -140,16 +189,11 @@ public class calculationactivity extends AppCompatActivity {
         }
 
         else if(s.contains("sin")){
-            while (m.find()){
-                n=m.group();
 
-            }
-
-            String con=n.toString();
+            String con=numbers.get(0);
             num=Integer.parseInt(con);
             Double i= new Double(num);
             i=Math.toRadians(i);
-
             double x=Math.sin(i);
             String z=new DecimalFormat("##.###").format(x);
             resulttxt.setText(z);
@@ -158,21 +202,134 @@ public class calculationactivity extends AppCompatActivity {
         }
 
         else if(s.contains("tan")){
-            while (m.find()){
-                n=m.group();
 
-            }
-
-            String con=n.toString();
+            String con=numbers.get(0);
             num=Integer.parseInt(con);
             Double i= new Double(num);
             i=Math.toRadians(i);
             double x=Math.tan(i);
             String z=new DecimalFormat("##.###").format(x);
             resulttxt.setText(z);
-            //Toast.makeText(getApplicationContext(),new DecimalFormat("##.###").format(x)+"",Toast.LENGTH_LONG).show();
+            //  Toast.makeText(getApplicationContext(),new DecimalFormat("##.###").format(x)+"",Toast.LENGTH_LONG).show();
 
         }
+
+
+        else if(s.contains("width") && s.contains("height") && s.contains("area")){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            num=num1*num2;
+            resulttxt.setText(""+num);
+            // Toast.makeText(getApplicationContext(),num+"",Toast.LENGTH_LONG).show();
+        }
+
+        else if(s.contains("more") && s.contains("many")){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            num=num1+num2;
+            resulttxt.setText(""+num);
+            //Toast.makeText(getApplicationContext(),num+"",Toast.LENGTH_LONG).show();
+        }
+
+
+        else if(s.contains("return")){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            num=num1-num2;
+            resulttxt.setText(""+num);
+            //Toast.makeText(getApplicationContext(),Math.abs(num)+"",Toast.LENGTH_LONG).show();
+        }
+
+
+        else if(s.contains("multiply")){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            num=num1*num2;
+            resulttxt.setText(""+num);
+            //Toast.makeText(getApplicationContext(),num+"",Toast.LENGTH_LONG).show();
+        }
+
+        else if(s.contains("add")){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            num=num1+num2;
+            resulttxt.setText(""+num);
+            //Toast.makeText(getApplicationContext(),num+"",Toast.LENGTH_LONG).show();
+        }
+
+        else if(s.contains("subtract") || s.contains("minus")){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            num=num1-num2;
+            resulttxt.setText(""+num);
+            //Toast.makeText(getApplicationContext(),num+"",Toast.LENGTH_LONG).show();
+        }
+
+        else if(s.contains("divide")){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            if(num2==0){
+                resulttxt.setText("Can't Divide by Zero");
+                //Toast.makeText(getApplicationContext(),"Can't divide by zero",Toast.LENGTH_LONG).show();
+            }
+            else{
+                num=num1/num2;
+                resulttxt.setText(""+num);
+                //Toast.makeText(getApplicationContext(),num+"",Toast.LENGTH_LONG).show();
+            }
+
+        }
+
+        else if(s.contains("discount") ){
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            Double i1=new Double(num1);
+            Double i2=new Double(num2);
+            Double x=i1-(i1*i2/100);
+            String z=new DecimalFormat("##.###").format(x);
+            resulttxt.setText(z);
+            // Toast.makeText(getApplicationContext(),new DecimalFormat("##.###").format(x)+"",Toast.LENGTH_LONG).show();
+
+        }
+
+        else if(s.contains("cost")&& s.contains("vat")){
+            //  Toast.makeText(getApplicationContext(),"Inside vat",Toast.LENGTH_LONG).show();
+            String con1=numbers.get(0);
+            String con2=numbers.get(1);
+            num1=Integer.parseInt(con1);
+            num2= Integer.parseInt(con2);
+            Double i1=new Double(num1);
+            Double i2=new Double(num2);
+            Double x=i1+(i1*(i2/100));
+            String z=new DecimalFormat("##.###").format(x);
+            resulttxt.setText(z);
+            // Toast.makeText(getApplicationContext(),con1+" "+con2,Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),new DecimalFormat("##.###").format(x)+"",Toast.LENGTH_LONG).show();
+
+
+        }
+
+        else{
+
+            resulttxt.setText(numbers.get(0));
+        }
+
 
 
     }

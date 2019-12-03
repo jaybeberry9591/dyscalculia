@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="@drawable/homebg"
+    tools:context=".Mainmoney">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/homebtn"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/circlebtn"
+            android:src="@drawable/ic_sharp_home_24px" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/infobtn"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/circlebtn"
+            android:src="@drawable/ic_baseline_info_24px" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent" />
+
+        <ImageButton
+            android:id="@+id/cancelbtn"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/circlebtn"
+            android:src="@drawable/ic_baseline_highlight_off_24px" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Txt"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="179dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="PRESS BUTTON"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/whitebtnbg"
+        android:textSize="21dp"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/countmoney"
+        android:layout_marginTop="25dp"
+        android:text="Count the total money"
+        android:background="@drawable/regtanglebtn"
+        android:gravity="center"
+        android:textSize="21dp"
+        android:layout_gravity="center"
+        android:textColor="#ffff"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/checkmoney"
+        android:layout_marginTop="20dp"
+        android:text="Check the return"
+        android:gravity="center"
+        android:textSize="21dp"
+        android:background="@drawable/rectanglebtn2"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

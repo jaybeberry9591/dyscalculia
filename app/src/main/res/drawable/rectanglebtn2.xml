@@ -4,13 +4,13 @@
         android:color="#FFFFFF" />
     <gradient
         android:angle="0"
-        android:startColor="#19AA88"
-        android:endColor="#23A7D8"/>
+        android:startColor="#FFF"
+        android:endColor="#FFF"/>
 
     <corners
-        android:bottomLeftRadius="15dp"
-        android:bottomRightRadius="15dp"
-        android:topLeftRadius="15dp"
-        android:topRightRadius="15dp" />
+        android:bottomLeftRadius="150dp"
+        android:bottomRightRadius="150dp"
+        android:topLeftRadius="150dp"
+        android:topRightRadius="150dp" />
 
 </shape>

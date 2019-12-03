@@ -5,21 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
     android:background="@drawable/homebg"
     tools:context=".MainActivity">
 
 
     <pl.droidsonroids.gif.GifImageView
+        android:layout_marginTop="150dp"
         android:id="@+id/startImage"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:src="@drawable/gogo"
-        />
+        android:layout_height="400dp"
+
+        android:src="@drawable/gogo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/whitebtnbg"
+        android:gravity="center"
+        android:text="DyscAide"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        android:textColor="@color/colorPrimary"
+        android:textSize="55dp"
+        android:textStyle="bold|italic" />
+
+
 
 
 </LinearLayout>
